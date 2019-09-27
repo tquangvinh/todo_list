@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="my_app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .work {
+            display: block;
+        }
+        
+        .form-row {
+            margin: 100px 100px 0px 300px;
+            white-space: nowrap;
+        }
+        
+        .table {
+            margin: 20px 150px 0px 250px;
+            white-space: nowrap;
+            width: 60%;
+            border-color: aliceblue;
+            background-color: #A9BCF5;
+        }
+        
+        body {
+            background-image: url('https://img.thuthuatphanmem.vn/uploads/2018/11/11/hinh-nen-dep-trai-tim-mau-xanh_051045420.jpg');
+        }
+        
+        .input_work {
+            width: 50%;
+            height: 70px;
+            margin-right: 20px;
+        }
+    </style>
+    <title>{{title}}</title>
+</head>
+
+<body ng-controller="WorkController">
+    <form class="work">
+        <div class="form-row">
+            <div class="input_work">
+                <input type="text" class="form-control" ng-model="name_work" placeholder="Add name work..." required>
+            </div>
+            <div class="col-auto" style="margin-right: 20%; ">
+                <a type="button" class="btn btn-primary" href="/work" ng-click="add_()">Add Work</a>
+            </div>
+            <div>
+                <a class="btn btn-lg btn btn-success btn-block my-2" type="button" ng-click="delete_local()" href="/">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out
+                </a>
+            </div>
+        </div>
+    </form>
+
+    <div class="list_work" style="margin:0px 100px 0px 100px;">
+        <h1 style="color: #0000ff;text-align:center;"><b>List Work</b></h1>
+    </div>
+
+
+
+    <table border="1" class="table">
+        <tr>
+            <td style="color:#0000ff; text-align:center;font-size:25px"><b>Performer</b></td>
+            <td style="color:#0000ff; text-align:center;font-size:25px"><b>Name Work</b></td>
+            <td style="color:#0000ff; text-align:center;font-size:25px"><b>Options</b></td>
+        </tr>
+        <tr ng-repeat="x in work">
+            <td><b>{{x.person_.full_name}}</b></td>
+            <td><b> {{x.name_work}}</b></td>
+            <td>
+                <center>
+                    <a type="button" class="btn btn-danger text-right" href="/work" ng-click="delete_(x._id)"> <i class="fa fa-trash text-right"></i></a>
+                    <button type="button" ng-disabled="x.person_.full_name !== check" ng-click="get(x._id)" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-edit text-right"></i></button>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <center>
+                        <h1 class="modal-title" id="exampleModalLabel" style="color: #0000ff;text-align:center;"><b>{{title}}</b></h1>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <form class="edit_work">
+                        <div class="form-group row">
+                            <label for="name_work" class="col-sm-2 col-form-label">Name Work</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="name_work" id="name_work">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="edit_()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="work.angular.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</html>

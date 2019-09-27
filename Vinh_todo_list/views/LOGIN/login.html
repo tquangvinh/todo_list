@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="my_app">
+
+<head>
+    <title>TODO LIST</title>
+    <meta charset="utf-8">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .login {
+            margin-top: 150px;
+        }
+        
+        body {
+            background-color: transparent;
+            margin: auto;
+            width: 25%;
+            background-image: url('http://hinhnenpowerpointdep.com/uploads/images/20-hinh-anh-mau-xanh-duong-nhat-cuc-ki-dep-1494511715-1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: fixed;
+        }
+    </style>
+</head>
+
+<body ng-controller="LoginController">
+    <form class="login" autocomplete="off">
+        <h1 style="text-align: center;margin-bottom: 40px;">{{title}}</h1>
+        <div class="form-group">
+            <input type="email" class="form-control" ng-model="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" ng-model="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="flex-fill ml-1">
+            <button class="btn btn-info btn-lg btn-block" type="submit" ng-click="ds()">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                Sign In
+            </button>
+        </div>
+        <div class="d-flex justify-content-center links" style="color: 	#696969;">
+            Don't have an account? <a href="http://localhost:8000/register"> Register</a>
+        </div>
+    </form>
+</body>
+<script src="login.angular.js"></script>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="my_app">
+
+<head>
+    <title>Todo List</title>
+    <meta charset="utf-8">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .register {
+            margin-top: 150px;
+        }
+        
+        body {
+            background-color: transparent;
+            display: block;
+            margin: auto;
+            width: 30%;
+            background-image: url('http://hinhnenpowerpointdep.com/uploads/images/20-hinh-anh-mau-xanh-duong-nhat-cuc-ki-dep-1494511715-1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: fixed;
+        }
+        
+        .error-msg {
+            font-size: 90%;
+            font-style: italic;
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body ng-controller="RegisterController">
+    <form class="register" name="register">
+        <div>
+            <div>
+                <h1 style="text-align: center; margin-bottom:30px;">{{title }}</h1>
+
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" ng-model="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" ng-model="password" placeholder="Password" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" ng-model="full_name" name="full_name" placeholder="Full name" required>
+            </div>
+            <div class="flex-fill ml-1">
+                <button class="btn btn-info btn-lg btn-block" type="submit" ng-click="ds()">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    Register
+                </button>
+            </div>
+            <div class="d-flex justify-content-center links" style="color: 	#696969;">
+                Have an account? <a href="/"> Login</a>
+            </div>
+        </div>
+    </form>
+</body>
+<script src="register.angular.js"></script>
+
+</html>
